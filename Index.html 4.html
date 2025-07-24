@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bear Ninja Hunter Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      padding: 20px;
+      color: #222;
+    }
+
+    h1 {
+      text-align: center;
+      color: #3a3a3a;
+    }
+
+    #demo {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #ffffff;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Bear Ninja Hunter</h1>
+  <p id="demo">Replace this content with the calculated sum</p>
+
+  <script>
+    // 1. Prompt for player's name and store it
+    let userName = prompt("Welcome to Bear Ninja Hunter. Please enter your name:");
+
+    // 2. Create a personalized greeting and alert it
+    alert("Welcome, " + userName + "! Let's begin the game!");
+
+    // 3. Prompt user for their game choice
+    let userChoice = prompt("Choose your fighter: Bear 🐻, Ninja 🥷, or Hunter 🧑‍🌾");
+
+    // 4. Hard-coded computer choice (for now)
+    let computerChoice = "Bear";
+
+    // 5. Construct initial result message
+    let resultMessage = "Hello " + userName + "! You chose: " + userChoice + 
+                        ". The computer chose: " + computerChoice + ".";
+
+    // 6. Declare a variable for the winner message
+    let winnerMessage = "";
+
+    // 7. Use if...else if...else to determine winner
+    if (userChoice === computerChoice) {
+      winnerMessage = "It's a tie!";
+    } else if (userChoice === "Bear") {
+      if (computerChoice === "Ninja") {
+        winnerMessage = "Bear 🐻 defeats Ninja 🥷 — You win!";
+      } else {
+        winnerMessage = "Hunter 🧑‍🌾 defeats Bear 🐻 — Computer wins!";
+      }
+    } else if (userChoice === "Ninja") {
+      if (computerChoice === "Hunter") {
+        winnerMessage = "Ninja 🥷 defeats Hunter 🧑‍🌾 — You win!";
+      } else {
+        winnerMessage = "Bear 🐻 defeats Ninja 🥷 — Computer wins!";
+      }
+    } else if (userChoice === "Hunter") {
+      if (computerChoice === "Bear") {
+        winnerMessage = "Hunter 🧑‍🌾 defeats Bear 🐻 — You win!";
+      } else {
+        winnerMessage = "Ninja 🥷 defeats Hunter 🧑‍🌾 — Computer wins!";
+      }
+    } else {
+      winnerMessage = "Invalid choice. Please refresh and try again.";
+    }
+
+    // 8. Switch for flair: Add symbol to player selection
+    let userSymbol = "";
+    switch (userChoice) {
+      case "Bear":
+        userSymbol = "🐻";
+        break;
+      case "Ninja":
+        userSymbol = "🥷";
+        break;
+      case "Hunter":
+        userSymbol = "🧑‍🌾";
+        break;
+      default:
+        userSymbol = "❌";
+    }
+
+    // 9. Final output to page and console
+    let finalOutput = resultMessage + " " + winnerMessage + " You chose: " + userChoice + " " + userSymbol;
+    document.getElementById("demo").innerHTML = finalOutput;
+    console.log(finalOutput);
+  </script>
+
+</body>
+</html>
