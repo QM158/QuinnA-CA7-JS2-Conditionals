@@ -1,73 +1,102 @@
-<!-- File: index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="author" content="Quinn">
-  <title>Sundae Sunrise Delight</title>
+  <title>Bear Ninja Hunter Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      padding: 20px;
+      color: #222;
+    }
+
+    h1 {
+      text-align: center;
+      color: #3a3a3a;
+    }
+
+    #demo {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #ffffff;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      font-size: 1.2rem;
+    }
+  </style>
 </head>
-<body style="background-image: url('images/ice-cream-background.jpg'); background-size: cover; font-family: 'Verdana', sans-serif; color: #3a3a3a; padding: 1rem;">
+<body>
 
-  <h1>Sundae Sunrise Delight</h1>
+  <h1>Bear Ninja Hunter</h1>
+  <p id="demo">Replace this content with the calculated sum</p>
 
-  <h2>Banana Split Sundae</h2>
+  <script>
+    // 1. Prompt for player's name and store it
+    let userName = prompt("Welcome to Bear Ninja Hunter. Please enter your name:");
 
-  <p>Recipe source: Created by Quinn based on personal kitchen experiments and classic inspiration</p>
+    // 2. Create a personalized greeting and alert it
+    alert("Welcome, " + userName + "! Let's begin the game!");
 
-  <figure>
-    <img src="images/banana-split-sundae.jpg" alt="Banana split sundae topped with whipped cream, cherries, and sprinkles" style="height:250px;">
-    <figcaption>
-      Banana split image sourced from 
-      <a href="https://stock.adobe.com/search?k=banana+split" target="_blank" rel="noopener">Adobe Stock</a>. Used for educational purposes.
-    </figcaption>
-  </figure>
+    // 3. Prompt user for their game choice
+    let userChoice = prompt("Choose your fighter: Bear 🐻, Ninja 🥷, or Hunter 🧑‍🌾");
 
-  <fieldset>
-    <legend>Ingredients</legend>
-    <ul>
-      <li>1 ripe banana</li>
-      <li>3 scoops of ice cream (vanilla, chocolate, strawberry)</li>
-      <li>Whipped cream</li>
-      <li>Chocolate syrup</li>
-      <li>Crushed nuts</li>
-      <li>Maraschino cherry</li>
-      <li>Sprinkles (optional)</li>
-    </ul>
-  </fieldset>
-  
-  <fieldset>
-    <legend>Equipment</legend>
-    <ul>
-      <li>Long sundae dish</li>
-      <li>Ice cream scooper</li>
-      <li>Butter knife</li>
-      <li>Spoon</li>
-    </ul>
-  </fieldset>
-  
-  <fieldset>
-    <legend>Directions</legend>
-    <ol>
-      <li>Peel the banana and slice it in half lengthwise. Place both halves in the dish.</li>
-      <li>Add three scoops of ice cream in a row between the banana halves.</li>
-      <li>Drizzle chocolate syrup over the top.</li>
-      <li>Add whipped cream generously to each scoop.</li>
-      <li>Sprinkle crushed nuts and optional sprinkles over the whipped cream.</li>
-      <li>Top each scoop with a maraschino cherry and serve immediately.</li>
-    </ol>
-  </fieldset>
+    // 4. Hard-coded computer choice (for now)
+    let computerChoice = "Bear";
 
-  <hr />
+    // 5. Construct initial result message
+    let resultMessage = "Hello " + userName + "! You chose: " + userChoice + 
+                        ". The computer chose: " + computerChoice + ".";
 
-  <p style="text-align: right;">This page created as academic activity only.</p>
+    // 6. Declare a variable for the winner message
+    let winnerMessage = "";
 
-  <figure>
-    <img src="images/valid-html-recipe-quinn.jpg" alt="Screenshot of successful HTML validation for recipe page" style="height:250px;">
-    <figcaption>
-      Validation screenshot showing successful HTML check from 
-      <a href="https://validator.w3.org/" target="_blank" rel="noopener">W3C Validator</a>
-    </figcaption>
-  </figure>
+    // 7. Use if...else if...else to determine winner
+    if (userChoice === computerChoice) {
+      winnerMessage = "It's a tie!";
+    } else if (userChoice === "Bear") {
+      if (computerChoice === "Ninja") {
+        winnerMessage = "Bear 🐻 defeats Ninja 🥷 — You win!";
+      } else {
+        winnerMessage = "Hunter 🧑‍🌾 defeats Bear 🐻 — Computer wins!";
+      }
+    } else if (userChoice === "Ninja") {
+      if (computerChoice === "Hunter") {
+        winnerMessage = "Ninja 🥷 defeats Hunter 🧑‍🌾 — You win!";
+      } else {
+        winnerMessage = "Bear 🐻 defeats Ninja 🥷 — Computer wins!";
+      }
+    } else if (userChoice === "Hunter") {
+      if (computerChoice === "Bear") {
+        winnerMessage = "Hunter 🧑‍🌾 defeats Bear 🐻 — You win!";
+      } else {
+        winnerMessage = "Ninja 🥷 defeats Hunter 🧑‍🌾 — Computer wins!";
+      }
+    } else {
+      winnerMessage = "Invalid choice. Please refresh and try again.";
+    }
+
+    // 8. Switch for flair: Add symbol to player selection
+    let userSymbol = "";
+    switch (userChoice) {
+      case "Bear":
+        userSymbol = "🐻";
+        break;
+      case "Ninja":
+        userSymbol = "🥷";
+        break;
+      case "Hunter":
+        userSymbol = "🧑‍🌾";
+        break;
+      default:
+        userSymbol = "❌";
+    }
+
+    // 9. Final output to page and console
+    let finalOutput = resultMessage + " " + winnerMessage + " You chose: " + userChoice + " " + userSymbol;
+    document.getElementById("demo").innerHTML = finalOutput;
+    console.log(finalOutput);
+  </script>
 
 </body>
 </html>
