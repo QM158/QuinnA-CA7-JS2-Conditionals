@@ -39,7 +39,7 @@
     alert("Welcome, " + userName + "! Let's begin the game!");
 
     // 3. Prompt user for their game choice
-    let userChoice = prompt("Choose your fighter: Bear 🐻, Ninja 🥷, or Hunter 🧑‍🌾");
+    let userChoice = prompt("Choose your fighter: Bear 🐻, Ninja 🥷, or Hunter 🧑‍🌾").toLowerCase();
 
     // 4. Hard-coded computer choice (for now)
     let computerChoice = "Bear";
@@ -54,19 +54,19 @@
     // 7. Use if...else if...else to determine winner
     if (userChoice === computerChoice) {
       winnerMessage = "It's a tie!";
-    } else if (userChoice === "Bear") {
+    } else if (userChoice === "bear") {
       if (computerChoice === "Ninja") {
         winnerMessage = "Bear 🐻 defeats Ninja 🥷 — You win!";
       } else {
         winnerMessage = "Hunter 🧑‍🌾 defeats Bear 🐻 — Computer wins!";
       }
-    } else if (userChoice === "Ninja") {
+    } else if (userChoice === "ninja") {
       if (computerChoice === "Hunter") {
         winnerMessage = "Ninja 🥷 defeats Hunter 🧑‍🌾 — You win!";
       } else {
         winnerMessage = "Bear 🐻 defeats Ninja 🥷 — Computer wins!";
       }
-    } else if (userChoice === "Hunter") {
+    } else if (userChoice === "hunter") {
       if (computerChoice === "Bear") {
         winnerMessage = "Hunter 🧑‍🌾 defeats Bear 🐻 — You win!";
       } else {
